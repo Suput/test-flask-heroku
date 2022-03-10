@@ -1,4 +1,4 @@
-from flask import Flask
+from flask import Flask, redirect
 import os
 
 app = Flask(__name__)
@@ -7,7 +7,12 @@ app.config['SECRET_KEY'] = 'yandexlyceum_secret_key'
 
 @app.route("/")
 def index():
-    return "<h1 style='font-size: 1000%'>Hello Internet</h1>"
+    return redirect("/index.html")
+
+
+@app.route("/index.html")
+def index1():
+    return "<h1>Новый текст</h1>"
 
 
 if __name__ == '__main__':
